@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+html,
+body,
+#root,
+main,
+.app,
+.app > div,
+.ins-layout {
+  height: 100%;
+}
+
+a {
+  display: block;
+}
