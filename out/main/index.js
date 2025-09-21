@@ -12,8 +12,21 @@ function createWindow() {
     ...process.platform === "linux" ? { icon } : {},
     webPreferences: {
       preload: path.join(__dirname, "../preload/index.js"),
-      sandbox: false
+      sandbox: false,
+      nodeIntegration: false,
+      webSecurity: false,
+      allowRunningInsecureContent: true
     }
+  });
+  mainWindow.webContents.session.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        "Content-Security-Policy": [
+          "*"
+        ]
+      }
+    });
   });
   mainWindow.on("ready-to-show", () => {
     mainWindow.show();

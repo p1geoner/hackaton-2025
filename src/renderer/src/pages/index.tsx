@@ -1,2 +1,5 @@
 export {MainPage} from './main/MainPage'
 export {ListPage} from './list/ListPage'
+export {SubscriptionsPage} from './subscriptions/SubscriptionsPage'
+export {SettingPage} from './settings/SettingPage'
+export {MapPage} from './map/MapPage'

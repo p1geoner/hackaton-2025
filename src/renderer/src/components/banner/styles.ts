@@ -7,6 +7,7 @@ export const useStyles = createStyles(({ css }) => ({
         background-size: cover;
         width: 100%;
         height: 100px;
+        min-height: 100px;
         h2 {
             color: white;
         }

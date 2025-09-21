@@ -1,6 +1,6 @@
 import {App, ConfigProvider} from "antd";
 import {BrowserRouter, Route, Routes} from "react-router";
-import {MainPage,ListPage} from "./pages";
+import {MainPage, ListPage, SubscriptionsPage, SettingPage, MapPage} from "./pages";
 import {DefaultLayout} from "./components/DefaultLayout";
 import './styles/index.scss';
 import ru_RU from 'antd/locale/ru_RU';
@@ -20,6 +20,9 @@ function MyApp(): React.JSX.Element {
             <Route path="/"  element={<MainPage />} />
             <Route element={<DefaultLayout />} >
               <Route path="/list"  element={<ListPage />} />
+                <Route path="/settings"  element={<SettingPage />} />
+                <Route path="/subscriptions" element={<SubscriptionsPage />} />
+                <Route path="/map" element={<MapPage />} />
             </Route>
           </Routes>
 

@@ -8,11 +8,14 @@ export const useStyles = createStyles(({ css, token }) => ({
   `,
   sider: css`
     border-right: 1px solid rgba(67, 134, 30, 0.2) !important;
-    width: 360px;
   `,
   id: css`
     color: ${token.colorPrimary} ;
     font-size: 16px;
     font-weight: 500;
+  `,
+  content: css`
+    height: 100vh;
+    overflow: auto;
   `
 }));
