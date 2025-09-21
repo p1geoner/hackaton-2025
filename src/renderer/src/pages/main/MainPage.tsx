@@ -1,8 +1,8 @@
 import { Button, Flex, Layout, Typography } from 'antd'
-import { useWindowSize } from '../hooks/useWindow'
+import { useWindowSize } from '../../hooks/useWindow'
 import { useState, useEffect, useMemo } from 'react'
-import ImgLogo from './../assets/logo.png'
-import ImgLogoIntro from './../assets/logo-intro.svg'
+import ImgIntro from '../../assets/intro.png'
+import ImgLogo from '../../assets/logo.png'
 import { Link } from 'react-router'
 
 const { Title, Text } = Typography
@@ -26,7 +26,6 @@ export const MainPage = () => {
   const isDesktop = deviceType === 'desktop'
 
   useEffect(() => {
-    console.log(deviceType)
     if (typeof window !== 'undefined' && window.electron) {
       window.electron?.resize?.()
     }
@@ -36,7 +35,7 @@ export const MainPage = () => {
     <Layout style={{
       minHeight: '100vh',
       maxHeight: '100vh',
-      overflow: 'hidden' // Предотвращаем двойной скролл
+      overflow: 'hidden'
     }}>
       <Layout.Content style={{
         display: 'flex',
@@ -49,21 +48,20 @@ export const MainPage = () => {
           vertical
           style={{
             flex: 1,
-            overflowY: 'auto', // Основной скролл здесь
+            overflowY: 'auto',
             overflowX: 'hidden',
             width: '100%',
             transition: 'all 0.1s ease'
           }}
         >
-          {/* Шапка с логотипом */}
           <div style={{
             padding: isMobile ? '16px' : '20px 40px',
             width: '100%',
             boxSizing: 'border-box',
-            flexShrink: 0 // Предотвращаем сжатие шапки
+            flexShrink: 0
           }}>
             <img
-              src={ImgLogoIntro}
+              src={ImgLogo}
               alt="Logo"
               style={{
                 height: isMobile ? '32px' : '40px',
@@ -74,7 +72,6 @@ export const MainPage = () => {
             />
           </div>
 
-          {/* Основной контент */}
           <Flex
             vertical={!isDesktop}
             flex={1}
@@ -84,7 +81,7 @@ export const MainPage = () => {
               width: '100%',
               boxSizing: 'border-box',
               padding:  '0 24px',
-              flex: 1 // Занимает оставшееся пространство
+              flex: 1
             }}
           >
             <Flex
@@ -128,7 +125,7 @@ export const MainPage = () => {
               </Flex>
 
               <Flex justify={isMobile ? 'center' : 'flex-start'}>
-                <Link to={'/main'}>
+                <Link to={'/list'}>
                   <Button
                     type={'primary'}
                     size={isMobile ? 'middle' : 'large'}
@@ -146,7 +143,6 @@ export const MainPage = () => {
               </Flex>
             </Flex>
 
-            {/* Изображение */}
             <Flex
               justify="center"
               style={{
@@ -155,18 +151,19 @@ export const MainPage = () => {
               }}
             >
               <img
-                src={ImgLogo}
+                src={ImgIntro}
                 style={{
                   maxWidth: '100%',
                   height: isMobile? '50%' : 'calc(100vh - 86px)',
                   objectFit: 'contain',
                   transition: 'height 0.2s ease'
                 }}
-                alt="Main Illustration"
+                alt="intro"
               />
             </Flex>
           </Flex>
         </Flex>
+
       </Layout.Content>
     </Layout>
   )

@@ -7,8 +7,8 @@ export const enum EThemes {
 
 const colors = {
   primary: {
-    [EThemes.LIGHT]: '#e54560',
-    [EThemes.DARK]: '#DE2846',
+    [EThemes.LIGHT]: '#43861e',
+    [EThemes.DARK]: '#43861e',
   },
   mainBg: {
     [EThemes.LIGHT]: '#FFFFFF',
